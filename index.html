@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- bootstrap cdn -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -16,12 +17,16 @@
   <body>
     <div class="container">
       <h3 class="text-center">Dream Phone</h3>
+      <!-- input area -->
       <div class="input-group w-50 mx-auto">
         <input id="search-area" type="text" class="form-control" />
         <button id="search-btn" class="btn btn-primary" onclick="getPhone()">
           Search
         </button>
       </div>
+
+      <!-- phones container -->
+      <div id="phones-container" class="row phones-container gx-4"></div>
     </div>
 
     <script src="/js/index.js"></script>
