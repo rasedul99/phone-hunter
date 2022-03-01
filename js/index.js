@@ -8,15 +8,16 @@ getPhone = () => {
 };
 
 const setPhone = (phones) => {
-  console.log(phones);
+  // console.log(phones);
   document.getElementById("phones-container").textContent = "";
+  document.getElementById("details-container").textContent = "";
   document.getElementById("search-area").value = "";
   const firstTweentyPhones = phones.slice(0, 20);
 
   for (const phone of firstTweentyPhones) {
-    console.log(phone);
+    // console.log(phone);
     const phonesContainer = document.getElementById("phones-container");
-    // phonesContainer.textContent = "";
+
     const div = document.createElement("div");
     div.classList.add("col-md-4");
     div.innerHTML = `
@@ -55,25 +56,27 @@ const showDetails = (phone) => {
   </div>
   <div class="col-md-7">
   <div class="w-50 mx-auto py-4">
-  <h5>Name :${phone.name}</h5>
-  <p>Category :${phone.brand}</p>
+  <h5><span class='fw-bold'> Name </span>: ${phone.name}</h5>
+  <p><span class='fw-bold'> Category </span>: ${phone.brand}</p>
    ${
      phone.releaseDate
-       ? `<p>Releasedate :${phone.releaseDate}<p/>`
-       : " Releasedate :No data found"
+       ? `<p> <span class='fw-bold'> Releasedate </span>: ${phone.releaseDate}<p/>`
+       : " <span class='fw-bold'> Releasedate </span>: No data found"
    }
-   <p>Storage :${phone.mainFeatures.storage}</p>
-   <p>Displaysize :${phone.mainFeatures.displaySize}</p>
-   <p>Chipset :${phone.mainFeatures.chipSet}</p>
-   <p>Memory :${phone.mainFeatures.memory}</p>
+   <p><span class='fw-bold'> Storage </span> : ${phone.mainFeatures.storage}</p>
+   <p><span class='fw-bold'> Displaysize </span> : ${
+     phone.mainFeatures.displaySize
+   }</p>
+   <p><span class='fw-bold'> Chipset </span>: ${phone.mainFeatures.chipSet}</p>
+   <p><span class='fw-bold'> Memory </span>: ${phone.mainFeatures.memory}</p>
 
-   <p> Sensors :${phone.mainFeatures.sensors}</p>
-   <p>Wlan :${phone.others.WLAN}</p>
-   <p>Bluetooth :${phone.others.Bluetooth}</p>
-   <p>GPS : ${phone.others.GPS}</p>
-   <p>NFC :${phone.others.NFC}</p>
-   <p>Radio :${phone.others.Radio}</p>
-   <p>USB :${phone.others.USB}</p>
+   <p><span class='fw-bold'>  Sensors </span>: ${phone.mainFeatures.sensors}</p>
+   <p><span class='fw-bold'> Wlan </span>: ${phone.others.WLAN}</p>
+   <p><span class='fw-bold'> Bluetooth </span>:${phone.others.Bluetooth}</p>
+   <p><span class='fw-bold'> GPS </span>: ${phone.others.GPS}</p>
+   <p><span class='fw-bold'> NFC </span>: ${phone.others.NFC}</p>
+   <p><span class='fw-bold'> Radio </span>: ${phone.others.Radio}</p>
+   <p><span class='fw-bold'> USB </span>: ${phone.others.USB}</p>
 
    </div 
   </div>
