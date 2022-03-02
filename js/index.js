@@ -9,15 +9,18 @@ getPhone = () => {
 };
 
 const setPhone = (phones) => {
-  console.log(phones);
+  // console.log(phones);
   if (phones.length > 0) {
-    console.log(phones);
+    // console.log(phones);
     document.getElementById("spinner").style.display = "none";
     document.getElementById("phones-container").textContent = "";
     document.getElementById("details-container").textContent = "";
     document.getElementById("error").textContent = "";
     document.getElementById("search-area").value = "";
+    console.log(phones);
     const firstTweentyPhones = phones.slice(0, 20);
+    // const restAllPhones = phones.slice(20, -1);
+    // console.log(restAllPhones);
 
     for (const phone of firstTweentyPhones) {
       // console.log(phone);
@@ -36,9 +39,11 @@ const setPhone = (phones) => {
   </div>
     `;
       phonesContainer.appendChild(div);
+      const loadMore = (document.getElementById("load-more").style.display =
+        "block");
     }
   } else {
-    console.log(phones);
+    // console.log(phones);
     document.getElementById("phones-container").textContent = "";
     document.getElementById("details-container").textContent = "";
     document.getElementById("error").textContent = "";
