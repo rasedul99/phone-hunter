@@ -2,25 +2,29 @@ getPhone = () => {
   const phone = document.getElementById("search-area").value;
   const url = `https://openapi.programming-hero.com/api/phones?search=${phone}`;
   //   console.log(url);
+  document.getElementById("spinner").style.display = "block";
   fetch(url)
     .then((res) => res.json())
     .then((result) => setPhone(result.data));
 };
 
 const setPhone = (phones) => {
-  // console.log(phones);
-  document.getElementById("phones-container").textContent = "";
-  document.getElementById("details-container").textContent = "";
-  document.getElementById("search-area").value = "";
-  const firstTweentyPhones = phones.slice(0, 20);
+  console.log(phones);
+  if (phones.length > 0) {
+    console.log(phones);
+    document.getElementById("spinner").style.display = "none";
+    document.getElementById("phones-container").textContent = "";
+    document.getElementById("details-container").textContent = "";
+    document.getElementById("error").textContent = "";
+    document.getElementById("search-area").value = "";
+    const firstTweentyPhones = phones.slice(0, 20);
 
-  for (const phone of firstTweentyPhones) {
-    // console.log(phone);
-    const phonesContainer = document.getElementById("phones-container");
-
-    const div = document.createElement("div");
-    div.classList.add("col-md-4");
-    div.innerHTML = `
+    for (const phone of firstTweentyPhones) {
+      // console.log(phone);
+      const phonesContainer = document.getElementById("phones-container");
+      const div = document.createElement("div");
+      div.classList.add("col-md-4");
+      div.innerHTML = `
     <div class="card my-3">
     <img src="${phone.image}"  class="card-img-top w-50 mx-auto py-2" alt="${phone.phone_name}"/>
     <div class="card-body">
@@ -31,7 +35,19 @@ const setPhone = (phones) => {
     </div>
   </div>
     `;
-    phonesContainer.appendChild(div);
+      phonesContainer.appendChild(div);
+    }
+  } else {
+    console.log(phones);
+    document.getElementById("phones-container").textContent = "";
+    document.getElementById("details-container").textContent = "";
+    document.getElementById("error").textContent = "";
+    document.getElementById("search-area").value = "";
+    document.getElementById("spinner").style.display = "none";
+    const error = document.getElementById("error");
+    const p = document.createElement("p");
+    p.innerText = "No result found";
+    error.appendChild(p);
   }
 };
 
@@ -84,7 +100,4 @@ const showDetails = (phone) => {
 
   `;
   detailsContainer.appendChild(div);
-};
-sensor = () => {
-  console.log("hello");
 };
