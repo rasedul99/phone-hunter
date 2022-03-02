@@ -19,8 +19,6 @@ const setPhone = (phones) => {
     document.getElementById("search-area").value = "";
     console.log(phones);
     const firstTweentyPhones = phones.slice(0, 20);
-    // const restAllPhones = phones.slice(20, -1);
-    // console.log(restAllPhones);
 
     for (const phone of firstTweentyPhones) {
       // console.log(phone);
@@ -39,8 +37,6 @@ const setPhone = (phones) => {
   </div>
     `;
       phonesContainer.appendChild(div);
-      const loadMore = (document.getElementById("load-more").style.display =
-        "block");
     }
   } else {
     // console.log(phones);
