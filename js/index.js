@@ -61,7 +61,7 @@ getDetails = (id) => {
 };
 
 const showDetails = (phone) => {
-  console.log(phone);
+  // console.log(phone);
 
   const detailsContainer = document.getElementById("details-container");
   detailsContainer.textContent = "";
@@ -69,7 +69,9 @@ const showDetails = (phone) => {
   div.innerHTML = `
   <div class='row gx-4'>
   <div class="col-md-5">
-  <img src="${phone.image}"  class="w-100  py-2" alt="${phone.phone_name}"/>
+  <img src="${phone.image}"  class="w-75 py-2 img-fluid" alt="${
+    phone.phone_name
+  }"/>
   </div>
   <div class="col-md-7">
   <div class="w-50 mx-auto py-4">
@@ -81,13 +83,15 @@ const showDetails = (phone) => {
        : " <span class='fw-bold'> Releasedate </span>: No data found"
    }
    <p><span class='fw-bold'> Storage </span> : ${phone.mainFeatures.storage}</p>
-   <p><span class='fw-bold'> Displaysize </span> : ${
+   <p><span class='fw-bold'> Displaysize </span> :${
      phone.mainFeatures.displaySize
    }</p>
-   <p><span class='fw-bold'> Chipset </span>: ${phone.mainFeatures.chipSet}</p>
-   <p><span class='fw-bold'> Memory </span>: ${phone.mainFeatures.memory}</p>
-
-   <p><span class='fw-bold'>  Sensors </span>: ${phone.mainFeatures.sensors}</p>
+   <p><span class='fw-bold'>  Chipset </span>: ${phone.mainFeatures.chipSet}</p>
+   <p><span  class='fw-bold'> Memory </span>: ${phone.mainFeatures.memory}</p>
+   <p><span  class='fw-bold'> Sensors </span>:${phone.mainFeatures.sensors.slice(
+     0,
+     3
+   )}</p> 
    <p><span class='fw-bold'> Wlan </span>: ${phone.others.WLAN}</p>
    <p><span class='fw-bold'> Bluetooth </span>:${phone.others.Bluetooth}</p>
    <p><span class='fw-bold'> GPS </span>: ${phone.others.GPS}</p>
